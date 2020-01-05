@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>JS Sandbox</title>
+    <style>
+    .flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    }
+    .fa-check{
+        color: green;
+    }
+    .fa-remove{
+        color: red;
+    }
+    #call-control, #btn-hangup, #btn-close{
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div id="main" class="card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            Soft phone
+                        </span>
+                        <span class="agent-activity">Agent Activity:</span>
+                        <div class="row">
+                            <div class="flexbox">
+                                <div id="soft-phone" class="col center-align">
+                                    <div class="row">
+                                    <form action="" id="phone-form">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="text" name="number" id="number" placeholder="Phone Number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="call-control" class="col">
+                                        <div class="row">
+                                            <div class="col">
+                                                <a id="btn-mute" class="btn-large btn-flat btn-floating grey lighten-3 ">
+                                                    <i class="material-icons grey-text text-darken-3">mic_off</i>
+                                                </a>      
+                                            </div>
+                                            <div class="col">
+                                                <a id="btn-dialpad" class="btn-large btn-flat btn-floating grey lighten-3 ">
+                                                    <i class="material-icons grey-text text-darken-3">dialpad</i>
+                                                </a>    
+                                            </div>
+                                            <div class="col">
+                                                <a id="btn-hold" class="btn-large btn-flat btn-floating grey lighten-3 ">
+                                                    <i class="material-icons grey-text text-darken-3">pause</i>
+                                                </a>   
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <a id="btn-conference" class="btn-large btn-flat btn-floating grey lighten-3 ">
+                                                    <i class="material-icons grey-text text-darken-3">group_add</i>
+                                                </a>   
+                                            </div>
+                                            <div class="col">
+                                                <a class="btn-large btn-flat btn-floating grey lighten-3">
+                                                    <i class="material-icons"></i>
+                                                </a>   
+                                            </div>
+                                            <div class="col">
+                                                <a id="btn-transfer" class="btn-large btn-flat btn-floating grey lighten-3 ">
+                                                    <i class="material-icons grey-text text-darken-3">swap_horiz</i>
+                                                </a>   
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="keypad" class="col">
+                                        <div class="row">
+                                            <div class="col">
+                                                <button class="btn-large btn-flat btn-number btn-floating grey lighten-3 grey-text text-darken-3">1</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn-large btn-flat btn-number btn-floating grey lighten-3 grey-text text-darken-3">2</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn-large btn-flat btn-number btn-floating grey lighten-3 grey-text text-darken-3">3</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <button class="btn-large btn-flat btn-number btn-floating grey lighten-3 grey-text text-darken-3">4</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn-large btn-flat btn-number btn-floating grey lighten-3 grey-text text-darken-3">5</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn-large btn-flat btn-number btn-floating grey lighten-3 grey-text text-darken-3">6</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <button class="btn-large btn-flat btn-number btn-floating grey lighten-3 grey-text text-darken-3">7</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn-large btn-flat btn-number btn-floating grey lighten-3 grey-text text-darken-3">8</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn-large btn-flat btn-number btn-floating grey lighten-3 grey-text text-darken-3">9</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <button class="btn-large btn-flat btn-number btn-floating grey lighten-3 grey-text text-darken-3">*</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn-large btn-flat btn-number btn-floating grey lighten-3 grey-text text-darken-3">0</button>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn-large btn-flat btn-number btn-floating grey lighten-3 grey-text text-darken-3">#</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div id="call-buttons" class="row">
+                                            <a id="btn-dial" class="btn-dial btn-large btn-flat btn-floating green">
+                                                <i class="material-icons">call</i>
+                                            </a>
+                                            <a id="btn-hangup" class="btn-large btn-flat btn-floating red">
+                                                <i class="material-icons">call_end</i>
+                                            </a>    
+                                            <a id="btn-close" class="btn-large btn-flat btn-floating grey lighten-3">
+                                                <i class="material-icons grey-text text-darken-3">close</i>
+                                            </a>    
+                                        </div>
+                                        
+                                        <!--<button id="btn-hangup" class="btn red">Hangup</button>-->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <h5 id="task-title">Tasks</h5>
+                        <div class="input-field col s12">
+                            <input type="text" name="filter" id="filter">
+                            <label for="filter">Filter</label>
+                        </div>
+                        <ul class="collection"></ul>
+                        <a class="clear-tasks btn black">Clear Tasks</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://media.twiliocdn.com/sdk/js/client/releases/1.7.5/twilio.min.js"></script>
+    <script src="https://media.twiliocdn.com/sdk/js/sync/v0.11/twilio-sync.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
