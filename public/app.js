@@ -1,5 +1,7 @@
 const device = new Twilio.Device();
 let syncClient;
+let syncTokenUrl= "YOUR_URL";
+let clientTokenUrl = "YOUR_URL";
 window.onload = function initalize() {
   getSyncToken();
   getClientToken();
@@ -7,7 +9,7 @@ window.onload = function initalize() {
 
 //Fetch client token and register callbacks
 function getClientToken() {
-  fetch('URL_TO_FETCH_CLIENT_TOKEN')
+  fetch(clientTokenUrl)
     .then(
       function (response) {
         if (response.status !== 200) {
@@ -163,7 +165,7 @@ function setSoftPhoneDisplay(isConnected, isKeypad){
 
 //Fetch Sync token and register sync client
 function getSyncToken(){
-  fetch('URL_TO_FETCH_SYNC_TOKEN')
+  fetch(syncTokenUrl)
   .then(
     function (response) {
       if (response.status !== 200) {
