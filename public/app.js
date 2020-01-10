@@ -198,6 +198,12 @@ function createMap(){
   syncClient.map("ActiveCall")
     .then(function(map){
       console.log(map)
+      map.on('itemAdded', function(event){
+        map.get('Call').then(function(call){
+          console.log(call.descriptor.data)
+          console.log("Child Call Status: ", call.descriptor.data.ChildCall.status)
+        })
+      })
       map.on('itemUpdated', function(event){
         map.get('Call').then(function(call){
           console.log(call.descriptor.data)
