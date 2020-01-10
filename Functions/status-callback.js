@@ -22,6 +22,7 @@ exports.handler = function (context, event, callback) {
 							.then(result => {
 									/**
 									 * If the result isn't equal to 0 update the sync map, else create the item 
+          * 
 									 */
 									if (result.length !== 0) {
 											client.sync.services(context.SYNC_SERVICE_SID)
